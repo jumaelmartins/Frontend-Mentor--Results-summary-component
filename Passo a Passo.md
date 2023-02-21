@@ -2,8 +2,10 @@
 # Results summary component
 
 [X] - Criar Repositorio
+[x] - Organizar estrutura inicial do projeto
+[x] - Estrutura HTML inicial.
+[] - Criar variaveis de cores no css de acordo com o design definido.
 
-[] - Organizar estrutura inicial do projeto
 
 <!--
   Your Result
