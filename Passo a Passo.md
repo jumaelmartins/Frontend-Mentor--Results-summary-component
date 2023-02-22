@@ -4,7 +4,8 @@
 [X] - Criar Repositorio
 [x] - Organizar estrutura inicial do projeto
 [x] - Estrutura HTML inicial.
-[] - Criar variaveis de cores no css de acordo com o design definido.
+[X] - Resetar CSS padrão.
+[X] - Criar variaveis de cores no css de acordo com o design definido.
 
 
 <!--
