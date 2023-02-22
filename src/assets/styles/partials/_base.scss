@@ -217,7 +217,7 @@ footer {
 @media screen and (min-width: 600px) {
     main {
       max-width: 95%;
-      height: 70vh;
+      height: auto;
       margin: 10rem auto;
       display: grid;
   
@@ -229,7 +229,7 @@ footer {
 @media screen and (min-width: 1024px) {
   main {
     max-width: 90%;
-    height: 70vh;
+    height: auto;
     margin: 10rem auto;
     display: grid;
 
@@ -240,7 +240,7 @@ footer {
 @media screen and (min-width: 1440px) {
     main {
       max-width: 48%;
-      height: 70vh;
+      height: auto;
       margin: 10rem auto;
       display: grid;
   
