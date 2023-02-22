@@ -1,89 +1,249 @@
 @use "variables";
-@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
 
-
-
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Hanken Grotesk', sans-serif;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Hanken Grotesk", sans-serif;
 }
 
 html {
-    font-size: 62.5%;
-    p {
-        font-size: 1.8rem;
+  font-size: 62.5%;
+  p {
+    font-size: 1.8rem;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    text-decoration: none;
+    &:visited {
+      color: inherit;
     }
-    li {
-        list-style: none;
-    }
-    a {
-        text-decoration: none;
-        &:visited {
-            color: inherit;
-        }
-    }
+  }
 }
 
 main {
-    max-width: 48%;
+  border-radius: 2.2rem;
+
+  box-shadow: 1rem 1rem 1.5rem 0 map-get(variables.$neutralColors, "paleBlue");
+  h1 {
+    display: none;
+  }
+
+  .results {
+    padding: 5rem;
+    border-radius: 2.2rem;
+    background: linear-gradient(
+      map-get(variables.$gradientColors, "lightBlueOne"),
+      map-get(variables.$gradientColors, "royalBlueOne")
+    );
+    display: flex;
+    flex-direction: column;
+  }
+
+  .summary {
+    padding: 5rem;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-between;
+    h2 {
+      font-size: 2rem;
+      color: map-get(variables.$neutralColors, "darkGrayBlue");
+    }
+  }
+}
+
+.results {
+  color: map-get(variables.$neutralColors, "lightLavender");
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  h2 {
+    font-size: 2rem;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(
+      map-get(variables.$gradientColors, "violetBlue"),
+      map-get(variables.$gradientColors, "persianBlue")
+    );
+    border-radius: 100%;
+    align-items: center;
+    justify-content: center;
+
+    height: 20rem;
+    width: 20rem;
+
+    :nth-child(1) {
+      font-size: 6rem;
+      color: map-get(variables.$neutralColors, "whiteColor");
+      font-weight: 800;
+    }
+  }
+
+  h3 {
+    color: map-get(variables.$neutralColors, "whiteColor");
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 0%;
+  }
+
+  .results {
+    padding: 0;
+    div {
+      height: 15rem;
+      width: 15rem;
+      margin: 1.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 100%;
+      background: map-get(variables.$gradientColors, "lightBlueOne");
+      top: 0;
+    }
+  }
+
+  .summary {
+    padding: 0;
+  }
+}
+
+li {
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: 600;
+  div {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    p {
+      margin: 0 0.5rem;
+    }
+  }
+
+  &.reaction {
+    background-color: hsl(0, 80%, 95%);
+    color: map-get(variables.$primaryColors, "lightRed");
+  }
+
+  &.memory {
+    background-color: hsl(39, 80%, 95%);
+    color: map-get(variables.$primaryColors, "orangeyYellow");
+  }
+
+  &.verbal {
+    background-color: hsl(166, 80%, 95%);
+    color: map-get(variables.$primaryColors, "greenTeal");
+  }
+
+  &.visual {
+    background-color: hsl(234, 80%, 95%);
+    color: map-get(variables.$primaryColors, "cobaltBlue");
+  }
+}
+
+button {
+  width: 100%;
+  border-radius: 3rem;
+  height: 5rem;
+
+  color: white;
+  border: none;
+  background-color: map-get(variables.$neutralColors, "darkGrayBlue");
+  cursor: pointer;
+
+  &:hover {
+    background: linear-gradient(
+      map-get(variables.$gradientColors, "lightBlueOne"),
+      map-get(variables.$gradientColors, "royalBlueOne")
+    );
+  }
+}
+
+ul > li > :nth-child(2) {
+  color: map-get(variables.$neutralColors, "darkGrayBlue");
+  max-width: 100%;
+}
+
+ul > li > :nth-child(2) > :nth-child(2) {
+  color: map-get(variables.$neutralColors, "lightLavender");
+  max-width: 100%;
+}
+
+footer {
+  background-color: white;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+}
+
+
+@media screen and (min-width: 600px) {
+    main {
+      max-width: 95%;
+      height: 70vh;
+      margin: 10rem auto;
+      display: grid;
+  
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+
+@media screen and (min-width: 1024px) {
+  main {
+    max-width: 90%;
     height: 70vh;
     margin: 10rem auto;
     display: grid;
 
     grid-template-columns: 1fr 1fr;
-    
-    border-radius: 2.2rem;
-
-    box-shadow: 1rem 1rem 1.5rem 0 map-get(variables.$neutralColors, "paleBlue");
-    h1 {
-        display: none;
-    }
-
-    .results {
-        padding: 5rem;
-        border-radius: 2.2rem;
-        background: linear-gradient(map-get(variables.$gradientColors, "lightBlueOne"), map-get(variables.$gradientColors, "royalBlueOne"));
-        display: flex;
-        flex-direction: column;
-    }
-
-    .summary {
-        padding: 5rem;
-    }
+  }
 }
 
-.results {
-    color: map-get(variables.$neutralColors,"lightLavender");
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-    h2 {
-        font-size: 2rem;
+@media screen and (min-width: 1440px) {
+    main {
+      max-width: 48%;
+      height: 70vh;
+      margin: 10rem auto;
+      display: grid;
+  
+      grid-template-columns: 1fr 1fr;
     }
-
-    div {
-
-        display: flex;
-        flex-direction: column;
-        background: linear-gradient(map-get(variables.$gradientColors, "violetBlue"), map-get(variables.$gradientColors, "persianBlue"));
-        border-radius: 100%;
-        align-items: center;
-        justify-content: center;
-
-        height: 20rem;
-        width: 20rem;
-
-        :nth-child(1){
-            font-size: 6rem;
-            color: map-get(variables.$neutralColors, "whiteColor");
-            font-weight: 800;
-        }   
-    }
-    
-    h3 {
-        color: map-get(variables.$neutralColors, "whiteColor");
-        font-size: 4rem;
-    }
-}
+  }

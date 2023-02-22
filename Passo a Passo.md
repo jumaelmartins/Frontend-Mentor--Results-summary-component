@@ -7,9 +7,9 @@
 [X] - Resetar CSS padrão.
 [X] - Criar variaveis de cores no css de acordo com o design definido.
 [X] - Estilizar Sessao Results.
-[] - Estilizar Sessao Summary.
-[] - Ajustar Responsividade.
-
+[X] - Estilizar Sessao Summary.
+[X] - Ajustar Responsividade.
+[] - Revisar Codigo;
 
 <!--
   Your Result
