@@ -25,3 +25,65 @@ html {
         }
     }
 }
+
+main {
+    max-width: 48%;
+    height: 70vh;
+    margin: 10rem auto;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    
+    border-radius: 2.2rem;
+
+    box-shadow: 1rem 1rem 1.5rem 0 map-get(variables.$neutralColors, "paleBlue");
+    h1 {
+        display: none;
+    }
+
+    .results {
+        padding: 5rem;
+        border-radius: 2.2rem;
+        background: linear-gradient(map-get(variables.$gradientColors, "lightBlueOne"), map-get(variables.$gradientColors, "royalBlueOne"));
+        display: flex;
+        flex-direction: column;
+    }
+
+    .summary {
+        padding: 5rem;
+    }
+}
+
+.results {
+    color: map-get(variables.$neutralColors,"lightLavender");
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    h2 {
+        font-size: 2rem;
+    }
+
+    div {
+
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(map-get(variables.$gradientColors, "violetBlue"), map-get(variables.$gradientColors, "persianBlue"));
+        border-radius: 100%;
+        align-items: center;
+        justify-content: center;
+
+        height: 20rem;
+        width: 20rem;
+
+        :nth-child(1){
+            font-size: 6rem;
+            color: map-get(variables.$neutralColors, "whiteColor");
+            font-weight: 800;
+        }   
+    }
+    
+    h3 {
+        color: map-get(variables.$neutralColors, "whiteColor");
+        font-size: 4rem;
+    }
+}
