@@ -1,4 +1,30 @@
 @use "sass:map";
+@mixin alignCenterJustifySpaceBetwen () {
+    justify-content: space-between;
+    align-items: center;
+};
+@mixin flexCollum () {
+    display: flex;
+    flex-direction: column;
+}
+@mixin centerCenter () {
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin bgGradientOne () {
+    background: linear-gradient(
+      map-get($gradientColors, "violetBlue"),
+      map-get($gradientColors, "persianBlue")
+    );
+}
+
+@mixin bgGradientTwo () {
+    background: linear-gradient(
+        map-get($gradientColors, "lightBlueOne"),
+        map-get($gradientColors, "royalBlueOne")
+      );
+}
 
 $primaryColors: (
      lightRed: hsl(0, 100%, 67%),

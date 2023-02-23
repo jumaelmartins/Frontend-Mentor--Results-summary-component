@@ -9,7 +9,8 @@
 [X] - Estilizar Sessao Results.
 [X] - Estilizar Sessao Summary.
 [X] - Ajustar Responsividade.
-[] - Revisar Codigo;
+[X] - Revisar Codigo;
+[] - Editar o Readme;
 
 <!--
   Your Result

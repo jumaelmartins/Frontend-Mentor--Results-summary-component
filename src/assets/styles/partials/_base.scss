@@ -1,11 +1,16 @@
 @use "variables";
 @import url("https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap");
 
-* {
+*, li, a {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: "Hanken Grotesk", sans-serif;
+  list-style: none;
+  text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
 }
 
 html {
@@ -13,69 +18,38 @@ html {
   p {
     font-size: 1.8rem;
   }
-  li {
-    list-style: none;
-  }
-  a {
-    text-decoration: none;
-    &:visited {
-      color: inherit;
-    }
-  }
 }
 
 main {
   border-radius: 2.2rem;
-
   box-shadow: 1rem 1rem 1.5rem 0 map-get(variables.$neutralColors, "paleBlue");
   h1 {
     display: none;
-  }
-
-  .results {
-    padding: 5rem;
-    border-radius: 2.2rem;
-    background: linear-gradient(
-      map-get(variables.$gradientColors, "lightBlueOne"),
-      map-get(variables.$gradientColors, "royalBlueOne")
-    );
-    display: flex;
-    flex-direction: column;
-  }
-
-  .summary {
-    padding: 5rem;
-    display: flex;
-    flex-direction: column;
-
-    justify-content: space-between;
-    h2 {
-      font-size: 2rem;
-      color: map-get(variables.$neutralColors, "darkGrayBlue");
-    }
   }
 }
 
 .results {
   color: map-get(variables.$neutralColors, "lightLavender");
-  align-items: center;
-  justify-content: space-between;
+  @include variables.alignCenterJustifySpaceBetwen;
   text-align: center;
+
+  padding: 5rem;
+  border-radius: 2.2rem;
+  background: linear-gradient(
+    map-get(variables.$gradientColors, "lightBlueOne"),
+    map-get(variables.$gradientColors, "royalBlueOne")
+  );
+  @include variables.flexCollum;
+
   h2 {
     font-size: 2rem;
   }
 
   div {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(
-      map-get(variables.$gradientColors, "violetBlue"),
-      map-get(variables.$gradientColors, "persianBlue")
-    );
+    @include variables.flexCollum;
+    @include variables.centerCenter;
+    @include variables.bgGradientOne;
     border-radius: 100%;
-    align-items: center;
-    justify-content: center;
-
     height: 20rem;
     width: 20rem;
 
@@ -92,61 +66,24 @@ main {
   }
 }
 
-@media screen and (max-width: 600px) {
-  main {
-    display: flex;
-    flex-direction: column;
-    max-width: 100%;
-    height: auto;
-    margin: auto;
-    border-radius: 0%;
-  }
-
-  .results {
-    padding: 0;
-    div {
-      height: 15rem;
-      width: 15rem;
-      margin: 1.5rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-    }
-
-    h2 {
-      font-size: 1.5rem;
-    }
-
-    h3 {
-      font-size: 2rem;
-    }
-
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      height: 20px;
-      width: 100%;
-      background: map-get(variables.$gradientColors, "lightBlueOne");
-      top: 0;
-    }
-  }
-
-  .summary {
-    padding: 0;
+.summary {
+  @include variables.flexCollum;
+  padding: 5rem;
+  justify-content: space-between;
+  h2 {
+    font-size: 2rem;
+    color: map-get(variables.$neutralColors, "darkGrayBlue");
   }
 }
 
 li {
+  @include variables.alignCenterJustifySpaceBetwen;
+
   border-radius: 0.5rem;
   margin: 2rem 0;
   padding: 1rem;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  
   font-weight: 600;
   div {
     max-width: 100%;
@@ -189,10 +126,7 @@ button {
   cursor: pointer;
 
   &:hover {
-    background: linear-gradient(
-      map-get(variables.$gradientColors, "lightBlueOne"),
-      map-get(variables.$gradientColors, "royalBlueOne")
-    );
+    @include variables.bgGradientTwo;
   }
 }
 
@@ -213,18 +147,62 @@ footer {
   justify-content: center;
 }
 
+@media screen and (max-width: 599px) {
+  main {
+    @include variables.flexCollum;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 0%;
+  }
 
-@media screen and (min-width: 600px) {
-    main {
-      max-width: 95%;
-      height: auto;
-      margin: 10rem auto;
-      display: grid;
-  
-      grid-template-columns: 1fr 1fr;
+  .results {
+    padding: 2rem;
+    div {
+      height: 15rem;
+      width: 15rem;
+      margin: 1.5rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+    }
+
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 20px;
+      width: 100%;
+      background: map-get(variables.$gradientColors, "lightBlueOne");
+      top: 0;
     }
   }
 
+  .summary {
+    padding: 2rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  main {
+    max-width: 95%;
+    height: auto;
+    margin: 10rem auto;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
 @media screen and (min-width: 1024px) {
   main {
@@ -238,12 +216,12 @@ footer {
 }
 
 @media screen and (min-width: 1440px) {
-    main {
-      max-width: 48%;
-      height: auto;
-      margin: 10rem auto;
-      display: grid;
-  
-      grid-template-columns: 1fr 1fr;
-    }
+  main {
+    max-width: 48%;
+    height: auto;
+    margin: 10rem auto;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
   }
+}
